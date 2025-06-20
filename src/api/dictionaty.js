@@ -18,8 +18,8 @@ export const dictionaty =  async (startChar) => {
 
     const originURL = `${base}?${params.toString()}`;
     console.log( originURL );
-    // const proxyURL = `https://corsproxy.io/?${encodeURIComponent(originURL)}`;
-    const proxyURL = originURL;
+    const proxyURL = `https://corsproxy.io/?${encodeURIComponent(originURL)}`;
+    // const proxyURL = originURL;
     try{
 
     const res = await fetch(proxyURL); //데이터를 요청하는 순간
