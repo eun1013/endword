@@ -1,0 +1,105 @@
+/*** scss ***/
+@import "./styles/variable.scss";
+@import "./styles/mixin.scss";
+@import "./styles/reset.scss";
+
+body{
+    font-family: 'Freesentation-9Black',sans-serif;
+}
+//body > #root
+#root{
+    height: 100vh;
+    background-color:var(--bg-color);  
+    @include flex-center;
+}
+//body > #root > .app
+.app{
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    color: var(--font-color);
+    border-radius: 3rem;
+    @media screen and (min-width:768px){
+        width: 402px;
+        height: 80vh;
+    }
+}
+/*** start-screen ***/
+.start-screen{
+    height: 100%;
+    text-align: center;
+    @include flex-layout(column,space-around);
+    gap: 3rem;
+    h1{
+        font-size: 3rem;
+    }
+    .input-form{
+        @include flex-layout(column);
+        gap: 0.7rem;
+        button{
+            @include round-button();
+            font-size: 1.3rem;
+            cursor: pointer;
+            &:hover{
+            filter: brightness(0.7);
+            }
+        }
+        input{
+            display: block;
+            width: 100%;
+            font-size: 1.5rem;
+            padding: 0.4rem;
+            cursor: pointer;
+        }
+    }
+}
+
+/**** Game Screen ***/
+.game-screen{
+    height: 100%;
+    padding: 2rem;
+    @include flex-layout(column);
+    gap: 0.7rem;
+    .word-list{
+        flex: 1;
+        width: 100%;
+        overflow:auto;
+        li{
+            margin: 1rem 0;
+            @include flex-center;
+            gap: 0.7rem;
+            justify-content: flex-start;
+            &:nth-child(odd){
+            }
+            &:nth-child(even){
+                flex-direction: row-reverse;
+                text-align: right;
+            }
+            span:nth-child(1){}
+            span:nth-child(2){
+                // border: 1px solid #222;
+                @include round-button();
+                width: 30%;
+            }
+        }
+    }
+    .game-form{
+        width: 100%;
+        @include flex-layout(row,flex-start,center);
+        gap: 0.7rem;
+        input{
+            @include round-button;
+            display: block;
+            flex: 1;
+            cursor: pointer;
+        }
+        button{
+            @include round-button;
+            width: 15%;
+            cursor: pointer;
+            &:hover{
+            filter: brightness(0.7);
+            }
+        }
+    }
+}
